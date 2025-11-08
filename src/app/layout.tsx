@@ -16,7 +16,7 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: "Built by Scout",
-  description: "scout.new",
+  description: "",
 };
 
 export default function RootLayout({
