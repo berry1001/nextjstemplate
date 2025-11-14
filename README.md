@@ -1,4 +1,4 @@
-# Scout Next Template
+# Pastel Next Template
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) and configured with TailwindCSS v4 and ShadCN UI.
 

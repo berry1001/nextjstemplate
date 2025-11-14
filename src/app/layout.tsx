@@ -15,7 +15,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Built by Scout",
+  title: "Built by Pastel",
   description: "",
 };
 
