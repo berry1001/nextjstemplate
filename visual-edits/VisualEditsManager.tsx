@@ -1737,7 +1737,7 @@ export default function HoverReceiver() {
           }
         }, 0);
       } else {
-        // Clicked on empty space or element without data-orchids-id
+        // Clicked on empty space or element without data-pastel-id
         // Clear focus and hover boxes
         if (focusedElementRef.current) {
           // Flush any pending changes
