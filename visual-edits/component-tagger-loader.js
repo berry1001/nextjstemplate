@@ -463,10 +463,10 @@ function componentTagger(src, map) {
         )
           return;
         const { line, column } = node.loc.start;
-        let orchidsId = `${rel}:${line}:${column}`;
+        let pastelId = `${rel}:${line}:${column}`;
         // Enhance the ID with context if we have map information
         if (mapContext) {
-          orchidsId += `@${mapContext.arrayName}`;
+          pastelId += `@${mapContext.arrayName}`;
         }
         // 🔍 Append referenced variable locations for simple identifier references in props
         (_a = node.attributes) === null || _a === void 0
@@ -485,7 +485,7 @@ function componentTagger(src, map) {
                 const refName = attr.value.expression.name;
                 const varInfo = variables.get(refName);
                 if (varInfo) {
-                  orchidsId += `@${refName}`;
+                  pastelId += `@${refName}`;
                 }
               }
             });
@@ -502,7 +502,7 @@ function componentTagger(src, map) {
         }
         ms.appendLeft(
           node.name.end,
-          ` data-orchids-id="${orchidsId}" data-orchids-name="${semanticName}"`,
+          ` data-pastel-id="${pastelId}" data-pastel-name="${semanticName}"`,
         );
         mutated = true;
       },
