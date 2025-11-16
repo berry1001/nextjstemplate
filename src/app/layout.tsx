@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
+import VisualEditsManager from "../visual-edits/VisualEditsManager";
 
 const interSans = Inter({
   variable: "--font-inter-sans",
@@ -27,9 +28,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${interSans.variable} ${instrumentSerif.variable} antialiased`}
+        className={`${interSans.variable} ${instrumentSerif.variable}
+  antialiased`}
       >
         {children}
+        <VisualEditsManager />
       </body>
     </html>
   );
