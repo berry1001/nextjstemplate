@@ -510,8 +510,14 @@ function componentTagger(src, map) {
     if (!mutated) return done(null, src, map);
     const out = ms.toString();
     const outMap = ms.generateMap({ hires: true });
-    /* Turbopack expects the sourcemap as a JSON *string*. */
-    done(null, out, JSON.stringify(outMap));
+
+    // Detect bundler: Turbopack uses different loader context
+    const isTurbopack = this._compiler?.name?.includes('turbopack') ||
+                        process.env.TURBOPACK === '1' ||
+                        this.mode === 'turbopack';
+
+    /* Webpack expects the sourcemap as an object, Turbopack as a JSON string. */
+    done(null, out, isTurbopack ? JSON.stringify(outMap) : outMap);
   } catch (err) {
     done(err);
   }

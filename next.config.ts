@@ -18,6 +18,14 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  webpack: (config: any) => {
+    config.module.rules.push({
+      test: /\.(tsx|jsx)$/,
+      exclude: /node_modules/,
+      use: [LOADER],
+    });
+    return config;
+  },
   turbopack: {
     rules: {
       "*.{jsx,tsx}": {
@@ -26,3 +34,5 @@ const nextConfig: NextConfig = {
     },
   },
 };
+
+export default nextConfig;
