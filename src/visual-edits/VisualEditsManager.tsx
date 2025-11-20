@@ -1053,6 +1053,16 @@ export default function HoverReceiver() {
         setHoverBox(null);
       }
 
+      // Apply resize directly to the element for real-time visual feedback
+      if (focusedElementRef.current) {
+        focusedElementRef.current.style.width = `${Math.round(newWidth)}px`;
+        focusedElementRef.current.style.height = `${Math.round(newHeight)}px`;
+
+        // Update focus box to match new size
+        const rect = focusedElementRef.current.getBoundingClientRect();
+        setFocusBox(expandBox(rect));
+      }
+
       // Send resize message to parent
       if (focusedElementId) {
         window.parent.postMessage(
@@ -2009,10 +2019,49 @@ export default function HoverReceiver() {
 
   return (
     <>
+      {/* TEMPORARY: Toggle button for visual edit mode testing */}
+      <button
+        onClick={() => setIsVisualEditMode(!isVisualEditMode)}
+        className="fixed top-4 right-4 z-[100010] px-4 py-2 rounded-lg font-semibold shadow-lg transition-all"
+        style={{
+          backgroundColor: isVisualEditMode ? "#3b82f6" : "#6b7280",
+          color: "white",
+        }}
+      >
+        {isVisualEditMode ? "✓ Visual Edit Mode ON" : "Visual Edit Mode OFF"}
+      </button>
+
       {/* Hover box - shows on hover with blue overlay */}
-      {isVisualEditMode && !isResizing && (
+      {isVisualEditMode && !isResizing && hoverBox && (
         <>
-          {/* Render all hover boxes for elements with same ID */}
+          {/* Main hover box - animates between elements */}
+          <div
+            className="fixed pointer-events-none border-[0.5px] border-[#38bdf8] bg-blue-200/20 border-dashed rounded-sm"
+            style={{
+              zIndex: 100000,
+              left: hoverBox.left,
+              top: hoverBox.top,
+              width: hoverBox.width,
+              height: hoverBox.height,
+              transition: "all 100ms cubic-bezier(0.34, 1.56, 0.64, 1)",
+            }}
+          />
+          {/* Tag label on hover box */}
+          {hoverTag && (
+            <div
+              className="fixed pointer-events-none text-[10px] text-white bg-[#38bdf8] px-1 py-0.5 rounded-sm"
+              style={{
+                zIndex: 100001,
+                left: hoverBox.left,
+                top: hoverBox.top - 20,
+                transition: "all 100ms cubic-bezier(0.34, 1.56, 0.64, 1)",
+              }}
+            >
+              {hoverTag}
+            </div>
+          )}
+
+          {/* Render additional hover boxes for elements with same ID */}
           {hoverBoxes
             .filter((box): box is NonNullable<Box> => box !== null)
             .map((box, index) => (
@@ -2025,6 +2074,7 @@ export default function HoverReceiver() {
                     top: box.top,
                     width: box.width,
                     height: box.height,
+                    transition: "all 100ms cubic-bezier(0.34, 1.56, 0.64, 1)",
                   }}
                 />
                 {/* Tag label on each hover box */}
@@ -2035,6 +2085,7 @@ export default function HoverReceiver() {
                       zIndex: 100001,
                       left: box.left,
                       top: box.top - 20,
+                      transition: "all 100ms cubic-bezier(0.34, 1.56, 0.64, 1)",
                     }}
                   >
                     {hoverTag}
