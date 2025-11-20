@@ -2031,7 +2031,7 @@ export default function HoverReceiver() {
               top: hoverBox.top,
               width: hoverBox.width,
               height: hoverBox.height,
-              transition: "all 100ms cubic-bezier(0.34, 1.56, 0.64, 1)",
+              transition: "all 60ms cubic-bezier(0.34, 1.56, 0.64, 1)",
             }}
           />
           {/* Tag label on hover box */}
@@ -2042,7 +2042,7 @@ export default function HoverReceiver() {
                 zIndex: 100001,
                 left: hoverBox.left,
                 top: hoverBox.top - 20,
-                transition: "all 100ms cubic-bezier(0.34, 1.56, 0.64, 1)",
+                transition: "all 60ms cubic-bezier(0.34, 1.56, 0.64, 1)",
               }}
             >
               {hoverTag}
@@ -2062,7 +2062,7 @@ export default function HoverReceiver() {
                     top: box.top,
                     width: box.width,
                     height: box.height,
-                    transition: "all 100ms cubic-bezier(0.34, 1.56, 0.64, 1)",
+                    transition: "all 60ms cubic-bezier(0.34, 1.56, 0.64, 1)",
                   }}
                 />
                 {/* Tag label on each hover box */}
@@ -2073,7 +2073,7 @@ export default function HoverReceiver() {
                       zIndex: 100001,
                       left: box.left,
                       top: box.top - 20,
-                      transition: "all 100ms cubic-bezier(0.34, 1.56, 0.64, 1)",
+                      transition: "all 60ms cubic-bezier(0.34, 1.56, 0.64, 1)",
                     }}
                   >
                     {hoverTag}
