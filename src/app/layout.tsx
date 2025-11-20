@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
   import { Inter, Instrument_Serif } from 'next/font/google';
   import './globals.css';
   import VisualEditsManager from '../visual-edits/VisualEditsManager';
+  import ErrorReporter from '@/components/ErrorReporter';
   import Script from 'next/script';
 
   const interSans = Inter({
@@ -25,6 +26,7 @@ import type { Metadata } from 'next';
   return (
   <html lang="en">
   <body className={`${interSans.variable} ${instrumentSerif.variable} antialiased`}>
+  <ErrorReporter />
   <Script
   src="https://lgnyaweewkitdrnkextq.supabase.co/storage/v1/object/public/Public/route-messenger.js"
   strategy="afterInteractive"
