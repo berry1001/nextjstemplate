@@ -2019,18 +2019,6 @@ export default function HoverReceiver() {
 
   return (
     <>
-      {/* TEMPORARY: Toggle button for visual edit mode testing */}
-      <button
-        onClick={() => setIsVisualEditMode(!isVisualEditMode)}
-        className="fixed top-4 right-4 z-[100010] px-4 py-2 rounded-lg font-semibold shadow-lg transition-all"
-        style={{
-          backgroundColor: isVisualEditMode ? "#3b82f6" : "#6b7280",
-          color: "white",
-        }}
-      >
-        {isVisualEditMode ? "✓ Visual Edit Mode ON" : "Visual Edit Mode OFF"}
-      </button>
-
       {/* Hover box - shows on hover with blue overlay */}
       {isVisualEditMode && !isResizing && hoverBox && (
         <>
