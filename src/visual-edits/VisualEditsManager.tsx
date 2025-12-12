@@ -2024,7 +2024,7 @@ export default function HoverReceiver() {
         <>
           {/* Main hover box - animates between elements */}
           <div
-            className="fixed pointer-events-none border-[0.5px] border-[#38bdf8] bg-blue-200/20 border-dashed"
+            className="fixed pointer-events-none border-[0.5px] border-[#0ea5e9] bg-sky-300/20 border-dashed"
             style={{
               zIndex: 100000,
               left: hoverBox.left,
@@ -2037,7 +2037,7 @@ export default function HoverReceiver() {
           {/* Tag label on hover box */}
           {hoverTag && (
             <div
-              className="fixed pointer-events-none text-[10px] text-white bg-[#38bdf8] px-1 py-0.5 rounded-[2px]"
+              className="fixed pointer-events-none text-[10px] text-white bg-[#0ea5e9] px-1 py-0.5 rounded-[2px]"
               style={{
                 zIndex: 100001,
                 left: hoverBox.left,
@@ -2055,7 +2055,7 @@ export default function HoverReceiver() {
             .map((box, index) => (
               <div key={index}>
                 <div
-                  className="fixed pointer-events-none border-[0.5px] border-[#38bdf8] bg-blue-200/20 border-dashed"
+                  className="fixed pointer-events-none border-[0.5px] border-[#0ea5e9] bg-sky-300/20 border-dashed"
                   style={{
                     zIndex: 100000,
                     left: box.left,
@@ -2068,7 +2068,7 @@ export default function HoverReceiver() {
                 {/* Tag label on each hover box */}
                 {hoverTag && (
                   <div
-                    className="fixed pointer-events-none text-[10px] text-white bg-[#38bdf8] px-1 py-0.5 rounded-[2px]"
+                    className="fixed pointer-events-none text-[10px] text-white bg-[#0ea5e9] px-1 py-0.5 rounded-[2px]"
                     style={{
                       zIndex: 100001,
                       left: box.left,
@@ -2089,7 +2089,7 @@ export default function HoverReceiver() {
         <>
           {focusTag && (
             <div
-              className="fixed text-[10px] font-semibold text-white bg-[#38bdf8] px-1 rounded-[2px] pointer-events-none select-none"
+              className="fixed text-[10px] font-semibold text-white bg-[#0ea5e9] px-1 rounded-[2px] pointer-events-none select-none"
               style={{
                 zIndex: 100003,
                 left: focusBox.left - 4,
@@ -2101,7 +2101,7 @@ export default function HoverReceiver() {
           )}
 
           <div
-            className="fixed pointer-events-none border-[1.5px] border-[#38bdf8]"
+            className="fixed pointer-events-none border-[1.5px] border-[#0ea5e9]"
             style={{
               zIndex: 100001,
               left: focusBox.left,
@@ -2117,7 +2117,7 @@ export default function HoverReceiver() {
             <>
               {/* Corner handles */}
               <div
-                className="fixed w-2 h-2 bg-[#38bdf8] rounded-[2px] cursor-nw-resize pointer-events-auto resize-handle"
+                className="fixed w-2 h-2 bg-[#0ea5e9] rounded-[2px] cursor-nw-resize pointer-events-auto resize-handle"
                 style={{
                   zIndex: 100002,
                   left: focusBox.left - 4,
@@ -2126,7 +2126,7 @@ export default function HoverReceiver() {
                 onMouseDown={(e) => handleResizeStart(e, "nw")}
               />
               <div
-                className="fixed w-2 h-2 bg-[#38bdf8] rounded-[2px] cursor-ne-resize pointer-events-auto resize-handle"
+                className="fixed w-2 h-2 bg-[#0ea5e9] rounded-[2px] cursor-ne-resize pointer-events-auto resize-handle"
                 style={{
                   zIndex: 100002,
                   left: focusBox.left + focusBox.width - 4,
@@ -2135,7 +2135,7 @@ export default function HoverReceiver() {
                 onMouseDown={(e) => handleResizeStart(e, "ne")}
               />
               <div
-                className="fixed w-2 h-2 bg-[#38bdf8] rounded-[2px] cursor-sw-resize pointer-events-auto resize-handle"
+                className="fixed w-2 h-2 bg-[#0ea5e9] rounded-[2px] cursor-sw-resize pointer-events-auto resize-handle"
                 style={{
                   zIndex: 100002,
                   left: focusBox.left - 4,
@@ -2144,7 +2144,7 @@ export default function HoverReceiver() {
                 onMouseDown={(e) => handleResizeStart(e, "sw")}
               />
               <div
-                className="fixed w-2 h-2 bg-[#38bdf8] rounded-[2px] cursor-se-resize pointer-events-auto resize-handle"
+                className="fixed w-2 h-2 bg-[#0ea5e9] rounded-[2px] cursor-se-resize pointer-events-auto resize-handle"
                 style={{
                   zIndex: 100002,
                   left: focusBox.left + focusBox.width - 4,
@@ -2155,7 +2155,7 @@ export default function HoverReceiver() {
 
               {/* Edge handles */}
               <div
-                className="fixed w-2 h-2 bg-[#38bdf8] rounded-[2px] cursor-n-resize pointer-events-auto resize-handle"
+                className="fixed w-2 h-2 bg-[#0ea5e9] rounded-[2px] cursor-n-resize pointer-events-auto resize-handle"
                 style={{
                   zIndex: 100002,
                   left: focusBox.left + focusBox.width / 2 - 4,
@@ -2164,7 +2164,7 @@ export default function HoverReceiver() {
                 onMouseDown={(e) => handleResizeStart(e, "n")}
               />
               <div
-                className="fixed w-2 h-2 bg-[#38bdf8] rounded-[2px] cursor-s-resize pointer-events-auto resize-handle"
+                className="fixed w-2 h-2 bg-[#0ea5e9] rounded-[2px] cursor-s-resize pointer-events-auto resize-handle"
                 style={{
                   zIndex: 100002,
                   left: focusBox.left + focusBox.width / 2 - 4,
@@ -2173,7 +2173,7 @@ export default function HoverReceiver() {
                 onMouseDown={(e) => handleResizeStart(e, "s")}
               />
               <div
-                className="fixed w-2 h-2 bg-[#38bdf8] rounded-[2px] cursor-w-resize pointer-events-auto resize-handle"
+                className="fixed w-2 h-2 bg-[#0ea5e9] rounded-[2px] cursor-w-resize pointer-events-auto resize-handle"
                 style={{
                   zIndex: 100002,
                   left: focusBox.left - 4,
@@ -2182,7 +2182,7 @@ export default function HoverReceiver() {
                 onMouseDown={(e) => handleResizeStart(e, "w")}
               />
               <div
-                className="fixed w-2 h-2 bg-[#38bdf8] rounded-[2px] cursor-e-resize pointer-events-auto resize-handle"
+                className="fixed w-2 h-2 bg-[#0ea5e9] rounded-[2px] cursor-e-resize pointer-events-auto resize-handle"
                 style={{
                   zIndex: 100002,
                   left: focusBox.left + focusBox.width - 4,
