@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
   import { Inter, Instrument_Serif } from 'next/font/google';
   import './globals.css';
-  import VisualEditsManager from '../visual-edits/VisualEditsManager';
+  import { VisualEditsManager } from '@berry1001/pastel-visual-edits';
   import ErrorReporter from '@/components/ErrorReporter';
   import Script from 'next/script';
 
