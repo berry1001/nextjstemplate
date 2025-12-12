@@ -2117,7 +2117,7 @@ export default function HoverReceiver() {
             <>
               {/* Corner handles */}
               <div
-                className="fixed w-2 h-2 bg-[#38bdf8] rounded-full cursor-nw-resize pointer-events-auto resize-handle"
+                className="fixed w-2 h-2 bg-[#38bdf8] rounded-[2px] cursor-nw-resize pointer-events-auto resize-handle"
                 style={{
                   zIndex: 100002,
                   left: focusBox.left - 4,
@@ -2126,7 +2126,7 @@ export default function HoverReceiver() {
                 onMouseDown={(e) => handleResizeStart(e, "nw")}
               />
               <div
-                className="fixed w-2 h-2 bg-[#38bdf8] rounded-full cursor-ne-resize pointer-events-auto resize-handle"
+                className="fixed w-2 h-2 bg-[#38bdf8] rounded-[2px] cursor-ne-resize pointer-events-auto resize-handle"
                 style={{
                   zIndex: 100002,
                   left: focusBox.left + focusBox.width - 4,
@@ -2135,7 +2135,7 @@ export default function HoverReceiver() {
                 onMouseDown={(e) => handleResizeStart(e, "ne")}
               />
               <div
-                className="fixed w-2 h-2 bg-[#38bdf8] rounded-full cursor-sw-resize pointer-events-auto resize-handle"
+                className="fixed w-2 h-2 bg-[#38bdf8] rounded-[2px] cursor-sw-resize pointer-events-auto resize-handle"
                 style={{
                   zIndex: 100002,
                   left: focusBox.left - 4,
@@ -2144,7 +2144,7 @@ export default function HoverReceiver() {
                 onMouseDown={(e) => handleResizeStart(e, "sw")}
               />
               <div
-                className="fixed w-2 h-2 bg-[#38bdf8] rounded-full cursor-se-resize pointer-events-auto resize-handle"
+                className="fixed w-2 h-2 bg-[#38bdf8] rounded-[2px] cursor-se-resize pointer-events-auto resize-handle"
                 style={{
                   zIndex: 100002,
                   left: focusBox.left + focusBox.width - 4,
@@ -2155,7 +2155,7 @@ export default function HoverReceiver() {
 
               {/* Edge handles */}
               <div
-                className="fixed w-2 h-2 bg-[#38bdf8] rounded-full cursor-n-resize pointer-events-auto resize-handle"
+                className="fixed w-2 h-2 bg-[#38bdf8] rounded-[2px] cursor-n-resize pointer-events-auto resize-handle"
                 style={{
                   zIndex: 100002,
                   left: focusBox.left + focusBox.width / 2 - 4,
@@ -2164,7 +2164,7 @@ export default function HoverReceiver() {
                 onMouseDown={(e) => handleResizeStart(e, "n")}
               />
               <div
-                className="fixed w-2 h-2 bg-[#38bdf8] rounded-full cursor-s-resize pointer-events-auto resize-handle"
+                className="fixed w-2 h-2 bg-[#38bdf8] rounded-[2px] cursor-s-resize pointer-events-auto resize-handle"
                 style={{
                   zIndex: 100002,
                   left: focusBox.left + focusBox.width / 2 - 4,
@@ -2173,7 +2173,7 @@ export default function HoverReceiver() {
                 onMouseDown={(e) => handleResizeStart(e, "s")}
               />
               <div
-                className="fixed w-2 h-2 bg-[#38bdf8] rounded-full cursor-w-resize pointer-events-auto resize-handle"
+                className="fixed w-2 h-2 bg-[#38bdf8] rounded-[2px] cursor-w-resize pointer-events-auto resize-handle"
                 style={{
                   zIndex: 100002,
                   left: focusBox.left - 4,
@@ -2182,7 +2182,7 @@ export default function HoverReceiver() {
                 onMouseDown={(e) => handleResizeStart(e, "w")}
               />
               <div
-                className="fixed w-2 h-2 bg-[#38bdf8] rounded-full cursor-e-resize pointer-events-auto resize-handle"
+                className="fixed w-2 h-2 bg-[#38bdf8] rounded-[2px] cursor-e-resize pointer-events-auto resize-handle"
                 style={{
                   zIndex: 100002,
                   left: focusBox.left + focusBox.width - 4,
