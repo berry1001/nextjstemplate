@@ -2019,6 +2019,18 @@ export default function HoverReceiver() {
 
   return (
     <>
+      {/* Temporary toggle button for testing */}
+      <button
+        onClick={() => setIsVisualEditMode(!isVisualEditMode)}
+        className="fixed bottom-4 right-4 z-[999999] px-3 py-2 rounded-md text-sm font-medium transition-colors"
+        style={{
+          backgroundColor: isVisualEditMode ? "#38bdf8" : "#505050",
+          color: "white",
+        }}
+      >
+        {isVisualEditMode ? "Visual Edit: ON" : "Visual Edit: OFF"}
+      </button>
+
       {/* Hover box - shows on hover with blue overlay */}
       {isVisualEditMode && !isResizing && hoverBox && (
         <>
@@ -2031,7 +2043,7 @@ export default function HoverReceiver() {
               top: hoverBox.top,
               width: hoverBox.width,
               height: hoverBox.height,
-              transition: "all 60ms cubic-bezier(0.34, 1.56, 0.64, 1)",
+              transition: "all 150ms",
             }}
           />
           {/* Tag label on hover box */}
@@ -2042,7 +2054,7 @@ export default function HoverReceiver() {
                 zIndex: 100001,
                 left: hoverBox.left,
                 top: hoverBox.top - 20,
-                transition: "all 60ms cubic-bezier(0.34, 1.56, 0.64, 1)",
+                transition: "all 150ms",
               }}
             >
               {hoverTag}
@@ -2062,7 +2074,7 @@ export default function HoverReceiver() {
                     top: box.top,
                     width: box.width,
                     height: box.height,
-                    transition: "all 60ms cubic-bezier(0.34, 1.56, 0.64, 1)",
+                    transition: "all 150ms",
                   }}
                 />
                 {/* Tag label on each hover box */}
@@ -2073,7 +2085,7 @@ export default function HoverReceiver() {
                       zIndex: 100001,
                       left: box.left,
                       top: box.top - 20,
-                      transition: "all 60ms cubic-bezier(0.34, 1.56, 0.64, 1)",
+                      transition: "all 150ms",
                     }}
                   >
                     {hoverTag}
@@ -2108,6 +2120,7 @@ export default function HoverReceiver() {
               top: focusBox.top,
               width: focusBox.width,
               height: focusBox.height,
+              transition: "all 150ms",
             }}
           />
 
