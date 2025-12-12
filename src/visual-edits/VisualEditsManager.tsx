@@ -2036,7 +2036,7 @@ export default function HoverReceiver() {
         <>
           {/* Main hover box - animates between elements */}
           <div
-            className="fixed pointer-events-none border-[0.5px] border-[#38bdf8] bg-blue-200/20 border-dashed rounded-sm"
+            className="fixed pointer-events-none border-[0.5px] border-[#38bdf8] bg-blue-200/20 border-dashed"
             style={{
               zIndex: 100000,
               left: hoverBox.left,
@@ -2067,7 +2067,7 @@ export default function HoverReceiver() {
             .map((box, index) => (
               <div key={index}>
                 <div
-                  className="fixed pointer-events-none border-[0.5px] border-[#38bdf8] bg-blue-200/20 border-dashed rounded-sm"
+                  className="fixed pointer-events-none border-[0.5px] border-[#38bdf8] bg-blue-200/20 border-dashed"
                   style={{
                     zIndex: 100000,
                     left: box.left,
@@ -2113,7 +2113,7 @@ export default function HoverReceiver() {
           )}
 
           <div
-            className="fixed pointer-events-none border-[1.5px] border-[#38bdf8] rounded-sm"
+            className="fixed pointer-events-none border-[1.5px] border-[#38bdf8]"
             style={{
               zIndex: 100001,
               left: focusBox.left,
