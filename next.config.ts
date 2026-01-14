@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const LOADER = require.resolve("@berry1001/pastel-visual-edits/loader");
+const LOADER = require.resolve("pastel-visual-edits/loader");
 
 const nextConfig: NextConfig = {
   output: "standalone",
