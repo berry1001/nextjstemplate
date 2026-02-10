@@ -1,9 +1,6 @@
 "use client";
 
-import "@/app/globals.css";
-import { useEffect, useRef, useState } from "react";
-import { CopyIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useEffect, useRef } from "react";
 
 type ReporterProps = {
   /*  ⎯⎯ props are only provided on the global-error page ⎯⎯ */
@@ -15,8 +12,6 @@ export default function ErrorReporter({ error, reset }: ReporterProps) {
   /* ─ instrumentation shared by every route ─ */
   const lastOverlayMsg = useRef("");
   const pollRef = useRef<NodeJS.Timeout>();
-  const [isCopied, setIsCopied] = useState(false);
-  const [isFixing, setIsFixing] = useState(false);
 
   useEffect(() => {
     const inIframe = window.parent !== window;
@@ -53,7 +48,7 @@ export default function ErrorReporter({ error, reset }: ReporterProps) {
       const overlay = document.querySelector("[data-nextjs-dialog-overlay]");
       const node =
         overlay?.querySelector(
-          "h1, h2, .error-message, [data-nextjs-dialog-body]",
+          "h1, h2, .error-message, [data-nextjs-dialog-body]"
         ) ?? null;
       const txt = node?.textContent ?? node?.innerHTML ?? "";
       if (txt && txt !== lastOverlayMsg.current) {
@@ -92,129 +87,47 @@ export default function ErrorReporter({ error, reset }: ReporterProps) {
         timestamp: Date.now(),
         userAgent: navigator.userAgent,
       },
-      "*",
+      "*"
     );
   }, [error]);
 
   /* ─ ordinary pages render nothing ─ */
   if (!error) return null;
 
-  const getDisplayMessage = () => {
-    const errorName = error.name || "Error";
-    let message = error.message;
-    if (!message.startsWith(errorName)) {
-      message = `${errorName}: ${message}`;
-    }
-    return message;
-  };
-
-  const getFullErrorMessage = () => {
-    const errorName = error.name || "Error";
-    let message = error.message;
-    if (!message.startsWith(errorName)) {
-      message = `${errorName}: ${message}`;
-    }
-    if (error.stack) {
-      message += `\n\n${error.stack}`;
-    }
-    if (error.digest) {
-      message += `\n\nDigest: ${error.digest}`;
-    }
-    return message;
-  };
-
-  const handleCopyError = async () => {
-    try {
-      await navigator.clipboard.writeText(getFullErrorMessage());
-      setIsCopied(true);
-      setTimeout(() => setIsCopied(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy error message:", err);
-    }
-  };
-
-  const handleFixWithPastel = () => {
-    setIsFixing(true);
-    window.parent.postMessage(
-      {
-        type: "FIX_WITH_PASTEL",
-        error: {
-          message: error.message,
-          stack: error.stack,
-          digest: error.digest,
-          name: error.name,
-        },
-        timestamp: Date.now(),
-      },
-      "*",
-    );
-  };
-
   /* ─ global-error UI ─ */
   return (
     <html>
-      <body className="min-h-screen bg-background text-foreground flex items-center justify-center p-8 overflow-hidden">
-        <div className="w-full max-w-3xl space-y-4">
-          {/* Header row with title and Fix button */}
-          <div className="flex items-center justify-between">
-            <h1 className="text-3xl font-semibold animate-orange-text-shimmer">
-              Runtime error
+      <body className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">
+        <div className="max-w-md w-full text-center space-y-6">
+          <div className="space-y-2">
+            <h1 className="text-2xl font-bold text-destructive">
+              Something went wrong!
             </h1>
-            <Button
-              onClick={handleFixWithPastel}
-              className="bg-muted hover:bg-muted/80 font-medium rounded-md gap-2 cursor-pointer"
-              size="default"
-              disabled={isFixing}
-            >
-              <img
-                src="/favicon.png"
-                alt="Pastel"
-                width={16}
-                height={16}
-              />
-              <span className="animate-theme-text-shimmer">
-                {isFixing ? "Pastel is fixing..." : "Fix with Pastel"}
-              </span>
-            </Button>
+            <p className="text-muted-foreground">
+              An unexpected error occurred. Please try again fixing with Orchids
+            </p>
           </div>
-
-          {/* Error message bubble */}
-          <div className="bg-muted/50 border border-border rounded-lg px-4 py-3">
-            <pre className="text-sm font-mono text-foreground whitespace-pre-wrap break-words">
-              {getDisplayMessage()}
-            </pre>
-          </div>
-
-          {/* Copy button */}
-          <div className="flex justify-start -mt-2">
-            <Button
-              onClick={handleCopyError}
-              variant="ghost"
-              size="icon"
-              className="shrink-0 cursor-pointer"
-            >
-              {isCopied ? (
-                <svg
-                  aria-hidden="true"
-                  width="16px"
-                  height="16px"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="text-foreground"
-                >
-                  <path
-                    d="M5 12.75L10 19L19 5"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              ) : (
-                <CopyIcon className="text-foreground" size={16} />
-              )}
-            </Button>
+          <div className="space-y-2">
+            {process.env.NODE_ENV === "development" && (
+              <details className="mt-4 text-left">
+                <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground">
+                  Error details
+                </summary>
+                <pre className="mt-2 text-xs bg-muted p-2 rounded overflow-auto">
+                  {error.message}
+                  {error.stack && (
+                    <div className="mt-2 text-muted-foreground">
+                      {error.stack}
+                    </div>
+                  )}
+                  {error.digest && (
+                    <div className="mt-2 text-muted-foreground">
+                      Digest: {error.digest}
+                    </div>
+                  )}
+                </pre>
+              </details>
+            )}
           </div>
         </div>
       </body>
