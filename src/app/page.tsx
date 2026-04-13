@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center overflow-hidden bg-linear-to-b from-background via-background to-background">
+    <div className="flex min-h-screen flex-col items-center justify-center overflow-hidden bg-red-500">
       <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-primary/10" />
 
       <main className="container relative z-10 flex max-w-4xl flex-col items-center justify-center gap-10 px-4 py-16 text-center md:py-24">
